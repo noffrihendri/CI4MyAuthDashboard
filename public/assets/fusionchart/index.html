@@ -1,0 +1,545 @@
+<html>
+<head>
+<script type="text/javascript" src="js/fusioncharts.js"></script>
+<script src="js/jquery.min.js"></script>
+
+<style>
+	.slide {
+		position: absolute;
+		margin-top: 2.5%;
+		margin-left: 15%
+	}
+	.video {
+		display: none;
+		width: 100%;
+		position: absolute;
+	}
+	.test {
+		position: fixed; 
+		right: 0; 
+		bottom: 0;
+		min-width: 100%; 
+		min-height: 100%;
+		width: auto; 
+		height: auto; 
+		z-index: -100;
+		background-size: cover; 
+	}
+</style>
+
+<script type="text/javascript">
+	var myChart1;
+	var myChart2;
+	var myChart3;
+	var myChart4;	
+
+	$(function () {
+		function slider1() {
+			myChart1 = new FusionCharts({
+				type: 'msline',
+				renderAt: 'chart-container1',
+				width: '70%',
+				height: '90%',
+				dataFormat: 'json',
+				dataSource: {
+					"chart": {
+						"caption": "Selling In vs Selling Out",
+						"subCaption": "Semester 2 2016",
+						"yAxisname": "",
+						"numberPrefix": "",
+						"paletteColors": "#0075c2,#1aaf5d",
+						"bgColor": "#ffffff",
+						"showBorder": "1",
+						"showHoverEffect":"1",
+						"showCanvasBorder": "0",
+						"usePlotGradientColor": "0",
+						"plotBorderAlpha": "10",
+						"legendBorderAlpha": "0",
+						"legendShadow": "0",
+						"placevaluesInside": "1",
+						"valueFontColor": "#555555",
+						"showXAxisLine": "1",
+						"xAxisLineColor": "#999999",
+						"divlineColor": "#999999",               
+						"divLineIsDashed": "1",
+						"showAlternateVGridColor": "0",
+						"subcaptionFontBold": "0",
+						"subcaptionFontSize": "14",
+						"animationDuration": "2"
+					},            
+					"categories": [
+						{
+							"category": [
+								{
+									"label": "Jul, 2016"
+								}, 
+								{
+									"label": "Aug, 2016"
+								}, 
+								{
+									"label": "Sep, 2016"
+								}, 
+								{
+									"label": "Oct, 2016"
+								}, 
+								{
+									"label": "Nov, 2016"
+								},
+								{
+									"label": "Dec, 2016"
+								}
+							]
+						}
+					],            
+					"dataset": [
+						{
+							"seriesname": "Selling In",
+							"data": [
+								{
+									"value": "32064000000"
+								}, 
+								{
+									"value": "46423000000"
+								}, 
+								{
+									"value": "51406000000"
+								}, 
+								{
+									"value": "46903000000"
+								}, 
+								{
+									"value": "49597000000"
+								},
+								{
+									"value": "56338000000"
+								}
+							]
+						}, 
+						{
+							"seriesname": "Selling Out",
+							"data": [
+								{
+									"value": "43758000000"
+								}, 
+								{
+									"value": "59654000000"
+								}, 
+								{
+									"value": "45847000000"
+								}, 
+								{
+									"value": "53507000000"
+								}, 
+								{
+									"value": "52736000000"
+								},
+								{
+									"value": "54681000000"
+								}
+							]
+						}
+					],
+					
+				}
+			}).render();
+		}
+		
+		function slider2() {
+			myChart2 = new FusionCharts({
+				type: 'pie2d',
+				renderAt: 'chart-container2',
+				width: '70%',
+				height: '90%',
+				dataFormat: 'json',
+				dataSource: {
+					chart: {
+						"caption": "Split of Visitors by Age Group",
+						"subCaption": "Last year",
+						"paletteColors": "#0075c2,#1aaf5d,#f2c500,#f45b00,#8e0000",
+						"bgColor": "#ffffff",
+						"showBorder": "1",
+						"use3DLighting": "0",
+						"showShadow": "0",
+						"enableSmartLabels": "0",
+						"startingAngle": "0",
+						"showPercentValues": "1",
+						"showPercentInTooltip": "0",
+						"decimals": "1",
+						"captionFontSize": "14",
+						"subcaptionFontSize": "14",
+						"subcaptionFontBold": "0",
+						"toolTipColor": "#ffffff",
+						"toolTipBorderThickness": "0",
+						"toolTipBgColor": "#000000",
+						"toolTipBgAlpha": "80",
+						"toolTipBorderRadius": "2",
+						"toolTipPadding": "5",
+						"showHoverEffect":"1",
+						"showLegend": "1",
+						"legendBgColor": "#ffffff",
+						"legendBorderAlpha": '0',
+						"legendShadow": '0',
+						"legendItemFontSize": '10',
+						"legendItemFontColor": '#666666',
+						"animationDuration": "2"
+					},
+					data:[{
+						label: "Bakersfield Central",
+						value: "880000"
+					},
+					{
+						label: "Garden Groove harbour",
+						value: "730000"
+					},
+					{
+						label: "Los Angeles Topanga",
+						value: "590000"
+					},
+					{
+						label: "Compton-Rancho Dom",
+						value: "520000"
+					},
+					{
+						label: "Daly City Serramonte",
+						value: "330000"
+					}]
+				}
+			}).render();
+		}
+		
+		function slider3() {
+			myChart3 = new FusionCharts({
+				type: 'bubble',
+				renderAt: 'chart-container3',
+				width: '70%',
+				height: '90%',
+
+				dataFormat: 'json',
+				dataSource: {
+					"chart": {
+						"caption": "Sales Analysis of Shoe Brands",
+						"subcaption": "Last Quarter",
+						"xAxisMinValue": "0",
+						"xAxisMaxValue": "100",
+						"yAxisMinValue": "0",
+						"yAxisMaxValue": "30000",
+						"plotFillAlpha": "70",
+						"plotFillHoverColor": "#6baa01",
+						"showPlotBorder": "0",
+						"xAxisName": "Average Price",
+						"yAxisName": "Units Sold",
+						"numDivlines": "2",
+						"showValues":"1",
+						"showTrendlineLabels": "0",
+						"plotTooltext": "$name : Profit Contribution - $zvalue%",
+						"drawQuadrant" : "1",
+						"quadrantLineAlpha" : "80",
+						"quadrantLineThickness" : "3",
+						"quadrantXVal" : "50",
+						"quadrantYVal": "15000",
+						//Quadrant Labels
+						"quadrantLabelTL": "Low Price / High Sale",
+						"quadrantLabelTR": "High Price / High Sale",
+						"quadrantLabelBL": "Low Price / Low Sale",
+						"quadrantLabelBR": "High Price / Low Sale",
+						  
+						//Cosmetics
+						"baseFontColor" : "#333333",
+						"baseFont" : "Helvetica Neue,Arial",
+						"captionFontSize" : "14",
+						"subcaptionFontSize" : "14",
+						"subcaptionFontBold" : "0",
+						"showBorder" : "1",
+						"bgColor" : "#ffffff",
+						"showShadow" : "0",
+						"canvasBgColor" : "#ffffff",
+						"canvasBorderAlpha" : "0",
+						"divlineAlpha" : "100",
+						"divlineColor" : "#999999",
+						"divlineThickness" : "1",
+						"divLineIsDashed" : "1",
+						"divLineDashLen" : "1",
+						"divLineGapLen" : "1",
+						"use3dlighting" : "0",
+						"showplotborder" : "0",
+						"showYAxisLine" : "1",
+						"yAxisLineThickness" : "1",
+						"yAxisLineColor" : "#999999",
+						"showXAxisLine" : "1",
+						"xAxisLineThickness" : "1",
+						"xAxisLineColor" : "#999999",
+						"showAlternateHGridColor" : "0",
+						"showAlternateVGridColor" : "0",
+						"animationDuration": "2"
+						
+					},
+					"categories": [
+						{
+							"category": [
+								{
+									"label": "$0",
+									"x": "0"
+								}, 
+								{
+									"label": "$20",
+									"x": "20",
+									"showverticalline": "1"
+								}, 
+								{
+									"label": "$40",
+									"x": "40",
+									"showverticalline": "1"
+								}, 
+								{
+									"label": "$60",
+									"x": "60",
+									"showverticalline": "1"
+								}, 
+								{
+									"label": "$80",
+									"x": "80",
+									"showverticalline": "1"
+								}, {
+									"label": "$100",
+									"x": "100",
+									"showverticalline": "1"
+								}
+							]
+						}
+					],
+					"dataset": [
+						{
+							"color":"#00aee4",
+							"data": [
+								{
+									"x": "80",
+									"y": "15000",
+									"z": "24",
+									"name": "Nike"
+								}, 
+								{
+									"x": "60",
+									"y": "18500",
+									"z": "26",
+									"name": "Adidas"
+								}, 
+								{
+									"x": "50",
+									"y": "19450",
+									"z": "19",
+									"name": "Puma"
+								}, 
+								{
+									"x": "65",
+									"y": "10500",
+									"z": "8",
+									"name": "Fila"
+								}, 
+								{
+									"x": "43",
+									"y": "8750",
+									"z": "5",
+									"name": "Lotto"
+								}, 
+								{
+									"x": "32",
+									"y": "22000",
+									"z": "10",
+									"name": "Reebok"
+								}, 
+								{
+									"x": "44",
+									"y": "13000",
+									"z": "9",
+									"name": "Woodland"
+								}
+							]
+						}
+					],
+					"trendlines": [
+						{
+							"line": [
+								{
+									"startValue": "20000",
+									"endValue": "30000",
+									"isTrendZone": "1",
+									"color": "#aaaaaa",
+									"alpha": "14"
+								}, 
+								{
+									"startValue": "10000",
+									"endValue": "20000",
+									"isTrendZone": "1",
+									"color": "#aaaaaa",
+									"alpha": "7"
+								}
+							]
+						}
+					],
+					"vTrendlines": [
+						{
+							"line": [
+								{
+									"startValue": "44",
+									"isTrendZone": "0",
+									"color": "#0066cc",
+									"thickness" : "1",
+									"dashed" : "1",
+									"displayValue": "Gross Avg."
+								}
+							]
+						}
+					]
+				}
+			}).render();
+		}
+		
+		function slider4() {
+			myChart4 = new FusionCharts({
+				type: 'maps/indonesia',
+				renderAt: 'chart-container4',
+				width: '70%',
+				height: '90%',
+				dataFormat: 'json',
+				dataSource: {
+					"chart": {
+						"caption": "Annual Sales by State",
+						"subcaption": "Last year",
+						"entityFillHoverColor": "#cccccc",
+						"numberScaleValue": "1,1000,1000",
+						"numberScaleUnit": "K,M,B",
+						"numberPrefix": "$",
+						"showLabels": "1",
+						"showBorder": "1",
+						"canvasBorderColor": "#bbbbbb",
+						"animationDuration": "2"
+					},
+					"colorrange": {
+						"minvalue": "0",
+						"startlabel": "Low",
+						"endlabel": "High",
+						"code": "#e44a00",
+						"gradient": "1",
+						"color": [
+							{
+								"maxvalue": "56580",
+								"displayvalue": "Average",
+								"code": "#f8bd19"
+							},
+							{
+								"maxvalue": "100000",
+								"code": "#6baa01"
+							}
+						]
+					},
+					  "data": [
+						{
+							"id": "01",
+							"value": "0"                   
+						}
+						
+					]
+				}
+			}).render(); 
+		}
+
+		var cfg = { 
+			"#slide1" : { delay : 8000, fade : 2000},     		
+			"#slide2" : { delay : 8000, fade : 2000}, 
+			"#slide3" : { delay : 8000, fade : 2000},
+			"#slide4" : { delay : 8000, fade : 2000},
+			"#slide5" : { delay : 15000, fade : 2000}
+		  };
+		  
+		var totalTime = 0;
+		$.each(cfg, function(k,v) { totalTime += v.delay + v.fade; });
+
+		loopDivs();
+		setInterval( loopDivs, totalTime);
+
+		function loopDivs(){  
+		  var d = 0;
+		  $.each(cfg, function(key, value){
+			window.setTimeout(function() {
+				switch($(key).attr('id')) {
+					case "slide1":
+						slider1();
+						console.log("1");
+					break;
+					case "slide2":
+						slider2();
+						console.log("2");
+					break;
+					case "slide3":
+						slider3();
+						console.log("3");
+					break;
+					case "slide4":
+						slider4();
+						console.log("4");
+					break;
+					case "slide5":
+						var vidEl = document.getElementById('video1');
+						vidEl.src = "assets/videos/video1.mp4";
+						vidEl.play();
+						console.log("5");
+					break;
+				}
+				
+				$(key).show().delay(value.delay).fadeOut(value.fade); 
+				
+			}, d);
+			d += value.delay + value.fade;
+			
+			switch($(key).attr('id')) {
+				case "slide1":
+					if(myChart1 != undefined)
+						myChart1.dispose();
+				break;
+				case "slide2":
+					if(myChart2 != undefined)
+						myChart2.dispose();
+				break;
+				case "slide3":
+					if(myChart3 != undefined)
+						myChart3.dispose();
+				break;
+				case "slide4":
+					if(myChart4 != undefined)
+						myChart4.dispose();
+				break;
+				case "slide5":
+					var vidEl = document.getElementById('video1');
+					vidEl.pause();
+					vidEl.src = "";
+				break;
+			}
+		  });
+		  
+		}
+	});
+</script>
+<body>
+	<div id="slide1" class="slide">
+		<div id="chart-container1"></div>
+	</div>
+	
+	<div id="slide2" class="slide">
+		<div id="chart-container2"></div>
+	</div>
+	
+	<div id="slide3" class="slide">
+		<div id="chart-container3"></div>
+	</div>
+	
+	<div id="slide4" class="slide">
+		<div id="chart-container4"></div>
+	</div>
+	
+	<div id="slide5" class="video">
+		<video class="test" id="video1">
+		  <source type="video/mp4">
+		</video>
+	</div>
+</body>
+</html>
