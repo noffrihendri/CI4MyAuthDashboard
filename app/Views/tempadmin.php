@@ -31,13 +31,13 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <script src="/assets/jquery/jquery-3.5.1.min.js"></script>
 
 
-
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-
+ -->
 
 
 
@@ -54,7 +54,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{url('/dashboard')}}" class="nav-link">Home</a>
+                    <a href="index3.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -85,7 +85,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="/assets/admin-lte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="{{ asset ('admin-lte/dist/img/user1-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -101,7 +101,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="/assets/admin-lte/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="{{ asset ('admin-lte/dist/img/user8-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -117,7 +117,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="<? base_url()?>assets/admin-lte/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="{{ asset('admin-lte/dist/img/user3-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
@@ -176,6 +176,8 @@
 
                 <span class="brand-text font-weight-light align-center">Selamat Datang</span>
             </a>
+
+
             <?= $this->include('navbar'); ?>
 
         </aside>
@@ -247,56 +249,68 @@
     <!-- jQuery -->
 
     <!-- jQuery -->
-    <script src="<?php echo base_url() ?>/assets/admin-lte/plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="<?php echo base_url() ?>/assets/admin-lte/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script src="<?= base_url('/assets/admin-lte/plugins/jquery/jquery.min.js') ?>"></script>
 
-    <!-- jQuery UI 1.11.4 -->
-    <script src="<?php echo base_url() ?>/assets/admin-lte/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="<?= base_url('/assets/jquery/jquery-ui-1.9.2.custom/jquery-ui-1.9.2.custom.min.js')?>" type="text/javascript">
+    </script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
-    <script src="/assets/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <!-- ChartJS -->
-    <script src="/assets/admin-lte/plugins/chart.js/Chart.min.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/chart.js/Chart.min.js') ?>"></script>
     <!-- Sparkline -->
-    <script src="/assets/admin-lte/plugins/sparklines/sparkline.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/sparklines/sparkline.js') ?>"></script>
     <!-- JQVMap -->
-    <script src="/assets/admin-lte/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="/assets/admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-
+    <script src="<?= base_url('/assets/admin-lte/plugins/jqvmap/jquery.vmap.min.js') ?>"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/jqvmap/maps/jquery.vmap.usa.js') ?>"></script>
     <!-- jQuery Knob Chart -->
-    <script src="/assets/admin-lte/plugins/jquery-knob/jquery.knob.min.js"></script>
-
+    <script src="<?= base_url('assets/admin-lte/plugins/jquery-knob/jquery.knob.min.js') ?>"></script>
     <!-- daterangepicker -->
-    <script src="/assets/admin-lte/plugins/moment/moment.min.js"></script>
-    <script src="/assets/admin-lte/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/moment/moment.min.js') ?>"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/daterangepicker/daterangepicker.js') ?>"></script>
+
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="/assets/admin-lte/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
+
     <!-- Summernote -->
-    <script src="/assets/admin-lte/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/summernote/summernote-bs4.min.js') ?>"></script>
     <!-- overlayScrollbars -->
-    <script src="/assets/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') ?>"></script>
     <!-- AdminLTE App -->
-    <script src="/assets/admin-lte/dist/js/adminlte.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/dist/js/adminlte.js') ?>"></script>
 
 
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="<?= base_url('/assets/admin-lte/dist/js/pages/dashboard.js') ?>"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="<?= base_url('/assets/admin-lte/dist/js/demo.js') ?>"></script>
 
     <!-- DataTables -->
-    <script src="/assets/admin-lte/plugins/datatables/jquery.dataTables.js"></script>
-    <script src="/assets/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/datatables/jquery.dataTables.js') ?>"></script>
+    <script src="<?= base_url('/assets/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js') ?>"></script>
 
     <!-- Bootstrap 4 -->
 
-    <!-- AdminLTE App -->
-    <script src="/assets/admin-lte/dist/js/adminlte.min.js"></script>
 
-    <script src="/assets/js/topindo.js"></script>
+
+    <script src="<?= base_url('/assets/js/topindo.js') ?>"></script>
 
     <!-- page script -->
+
+    {{-- tagit --?>
+    <script src="<?= base_url('/assets/js/Tagit/tagit.js') ?>"></script>
+    <link rel="stylesheet" href="<?= base_url('/assets/js/Tagit/css/tagit-dark-grey.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/assets/js/Tagit/css/jquery-ui-base-1.8.20.css') ?>">
+    <script type="text/javascript" src="<?= base_url('/assets/tagit')?>"></script>
+
+
+
+    <script src="<?= base_url('/assets/js/tinymce/tinymce.min.js') ?>" type="text/javascript"></script>
+    <script src="<?= base_url('/assets/js/nicedit/nicEdit.js') ?>" type="text/javascript"></script>
 
 
 

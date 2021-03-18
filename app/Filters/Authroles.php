@@ -27,15 +27,15 @@ class Authroles implements FilterInterface
 	public function before(RequestInterface $request, $arguments = null)
 	{
 		helper(['auth','my']);
-		// xDebug(User()->getRoles()[1]);
-		// d($arguments);
+		 //d(loggin_role()->name);
+		 // dd($arguments);
 	//	d(in_array(User()->getRoles()[1], $arguments));
 
-		if (!in_array(User()->getRoles()[1], $arguments, true)) {
+		if (!in_array(loggin_role()->name, $arguments, true)) {
 			// echo("masuk sini");
  
 			// die();
-			return redirect()->to('/dashboard');
+			return redirect()->to('/');
 			
 		}
 	}

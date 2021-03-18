@@ -32,6 +32,31 @@ class Treeviewdata
         return $arrResult;
     }
 
+    public function ArrangeModuleTreeDataComment($intParent, $arrRawData)
+    {
+        $arrResult = array();
+
+        //Generate Menu
+        if (isset($arrRawData[$intParent])) {
+            $lstData = $arrRawData[$intParent];
+
+            foreach ($lstData as $objData) {
+                $arrModule = array();
+                $arrModule["comment_id"]         = $objData->comment_id;
+                $arrModule["parent_comment_id"]     = $objData->parent_comment_id;
+                $arrModule["comment"]     = $objData->comment;
+                $arrModule["comment_seeder_name"]     = $objData->comment_seeder_name;
+                $arrModule["topik"]     = $objData->topik;
+                $arrModule["created_at"]     = $objData->created_at;
+                $arrModule["Child"]         = $this->ArrangeModuleTreeDataComment($objData->comment_id, $arrRawData);
+
+                array_push($arrResult, $arrModule);
+            }
+        }
+
+        return $arrResult;
+    }
+
     public function fShowModuleTree($lstModule, $strStatus, $onClick, $arrAkses = array())
     {
 

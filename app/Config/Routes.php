@@ -34,12 +34,18 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+
+
+
 $routes->group('',['filter' => 'Auth'],function ($routes) {
 
-	$routes->get('/dashboard', 'Dashboard::index');
+		$routes->get('/livecomment', 'Home::livecomment');
+		$routes->post('/createcommet', 'Home::createcomment');
+		$routes->get('/listcomment', 'Home::listcomment');
 
-		$routes->group('', ['filter' => 'Authroles:super user'], function ($routes) {
 
+		$routes->group('', ['filter' => 'Authroles:super user,admin'], function ($routes) {
+		$routes->get('/dashboard', 'Dashboard::index');
 			$routes->get('/adduser', 'Dashboard::adduser');
 			$routes->get('/updateuser', 'Dashboard::adduser');
 			$routes->post('/createuser', 'Dashboard::saveuser');
@@ -47,12 +53,14 @@ $routes->group('',['filter' => 'Auth'],function ($routes) {
 			$routes->get('/datauser', 'Dashboard::datauser');
 			$routes->get('/updateuser', 'Dashboard::update');
 			$routes->get('/deleteuser/(:num)', 'Dashboard::deleteuser/$1');
+
+			$routes->get('/listgroup', 'MenuController::index');
+			$routes->get('/listgroupdata', 'MenuController::ListGroup');
+			$routes->get('listgroup/updategroup', 'MenuController::editgroup');
+			$routes->post('creategroup', 'MenuController::savegroup');
+
 		});
 
-	$routes->get('/listgroup', 'MenuController::index');
-	$routes->get('/listgroupdata', 'MenuController::ListGroup');
-	$routes->get('listgroup/updategroup', 'MenuController::editgroup');
-	$routes->post('creategroup', 'MenuController::savegroup');
 
 });
 

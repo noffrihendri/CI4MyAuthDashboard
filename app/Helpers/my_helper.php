@@ -8,8 +8,10 @@ use App\Models\UserRole;
     function loggin_role()
     {
        $groupuser = new UserRole();
-        //dd(user()->id);
+       // dd(loggin_role()->name);
         $groupuser = $groupuser->get_user_group(user()->id)->getRowObject();
+
+//        $groupuser = loggin_role()->name;
 
         return $groupuser;
 

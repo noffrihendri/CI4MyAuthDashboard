@@ -201,7 +201,7 @@ class MenuController extends BaseController
 
 
 		$resutListModul = $this->menus->getmodule(user()->id)->getResult();
-		//dd($resutListModul);
+		//xDebug($resutListModul);
 		$arrLstTemp = array();
 
 		foreach ($resutListModul as $objModule) {
@@ -212,7 +212,7 @@ class MenuController extends BaseController
 
 			array_push($arrLstTemp[$objModule->parent], $objModule);
 		}
-
+		//xDebug($arrLstTemp);
 		$treeviewdata = new Treeviewdata();
 		$lastmodule = $treeviewdata->ArrangeModuleTreeData(0, $arrLstTemp);
 
