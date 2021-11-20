@@ -9,7 +9,7 @@ use App\Models\UserRole;
     {
        $groupuser = new UserRole();
        // dd(loggin_role()->name);
-        $groupuser = $groupuser->get_user_group(user()->id)->getRowObject();
+        $groupuser = $groupuser->get_user_group(isset(user()->id) ? user()->id :'')->getRowObject();
 
 //        $groupuser = loggin_role()->name;
 

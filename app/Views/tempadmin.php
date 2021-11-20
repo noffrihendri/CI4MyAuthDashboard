@@ -31,13 +31,15 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="/assets/jquery/jquery-3.5.1.min.js"></script>
+    <script src="<?= base_url('/assets/ckeditor4/ckeditor.js') ?>"></script>
 
 
-    <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
- -->
+    <script src="<?= base_url()?>/assets/jquery/jquery-3.5.1.min.js"></script>
+   
+
+
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="<?=base_url('/assets/bootstrap/css/bootstrap-select.min.css')?>"> -->
 
 
 
@@ -85,7 +87,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset ('admin-lte/dist/img/user1-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -101,7 +103,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset ('admin-lte/dist/img/user8-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -117,7 +119,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset('admin-lte/dist/img/user3-128x128.jpg') ?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
@@ -250,11 +252,8 @@
 
     <!-- jQuery -->
     <script src="<?= base_url('/assets/admin-lte/plugins/jquery/jquery.min.js') ?>"></script>
-
-
-    <script src="<?= base_url('/assets/jquery/jquery-ui-1.9.2.custom/jquery-ui-1.9.2.custom.min.js')?>" type="text/javascript">
-    </script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script src="<?= base_url('/assets/jquery/jquery-ui-1.9.2.custom/jquery-ui-1.9.2.custom.min.js')?>" type="text/javascript">  </script>
     <script>
         $.widget.bridge('uibutton', $.ui.button)
     </script>
@@ -300,20 +299,22 @@
     <script src="<?= base_url('/assets/js/topindo.js') ?>"></script>
 
     <!-- page script -->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/js/Tagit/css/jquery-ui-base-1.8.20.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/js/Tagit/css/tagit-dark-grey.css">
+    <script type="text/javascript" src="<?php echo base_url();?>/assets/js/Tagit/tagit.js"></script>
+    <script type="text/javascript" src="<?php echo site_url('news/tagit'); ?>"></script>
 
-    {{-- tagit --?>
-    <script src="<?= base_url('/assets/js/Tagit/tagit.js') ?>"></script>
-    <link rel="stylesheet" href="<?= base_url('/assets/js/Tagit/css/tagit-dark-grey.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/assets/js/Tagit/css/jquery-ui-base-1.8.20.css') ?>">
-    <script type="text/javascript" src="<?= base_url('/assets/tagit')?>"></script>
 
 
 
     <script src="<?= base_url('/assets/js/tinymce/tinymce.min.js') ?>" type="text/javascript"></script>
     <script src="<?= base_url('/assets/js/nicedit/nicEdit.js') ?>" type="text/javascript"></script>
 
+ 
 
 
+    
+</script>
 </body>
 
 </html>

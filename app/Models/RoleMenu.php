@@ -14,7 +14,7 @@ class RoleMenu extends Model
 	protected $returnType           = 'array';
 	protected $useSoftDelete        = false;
 	protected $protectFields        = true;
-	protected $allowedFields        = ['auth_groups_id','id_menu','created_by'];
+	protected $allowedFields        = ['auth_groups_id','id_menu','create','update','delete','created_by'];
 
 	// Dates
 	protected $useTimestamps        = true;

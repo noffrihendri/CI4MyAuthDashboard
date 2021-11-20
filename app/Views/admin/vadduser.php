@@ -12,8 +12,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <h3 class="card-title">Add user</h3>
-
+                        <button class="btn btn-warning" onclick="goBack()">back</button>
 
                     </div>
                     <div class="card-header">
@@ -121,6 +120,9 @@
     <!-- /.content -->
 
     <script>
+        function goBack() {
+        window.history.back();
+        }
         // $("#formuser").submit(function(e) {
         //     e.preventDefault();
 

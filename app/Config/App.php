@@ -152,7 +152,12 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
+	//public $sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler';
+	//public $sessionSavePath = WRITEPATH . 'session';
+	
+	//diganti dengan disimpan kedatabase
+	public $sessionDriver   = 'CodeIgniter\Session\Handlers\DatabaseHandler';
+	public $sessionSavePath = 'ci_sessions';
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -194,7 +199,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $sessionSavePath = WRITEPATH . 'session';
+	
 
 	/**
 	 * --------------------------------------------------------------------------

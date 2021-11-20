@@ -131,7 +131,7 @@ class MenuController extends BaseController
 			//Button
 			$strButton = "<i class='fa fa-pencil' aria-hidden='true'><a href=" . base_url('listgroup/updategroup?id=' . $objNews['id']) . " >edit</a></i>";
 			$strButton .=
-				"<i class='fa fa-trash' aria-hidden='true'><a href=" . base_url('deleltegroup?id=' . $objNews['id']) . " onclick=\"return confirm('Anda ingin menghapus data tersebut?')\">del</a></i>";
+				"<i class='fa fa-trash' aria-hidden='true'><a href=" . base_url('listgroup/deletegroup/' . $objNews['id']) . " onclick=\"return confirm('Anda ingin menghapus data tersebut?')\">del</a></i>";
 			$strButton .= "";
 			array_push($arrValue, $strButton);
 
@@ -229,12 +229,15 @@ class MenuController extends BaseController
 
 	public function savegroup()
 	{
+		//dd($this->request->getPost());
 		$strGroupName = $this->request->getPost('txtGroupName');
 		$strGroupID = $this->request->getPost('txtGroupId');
 		$arrModuleAkses = $this->request->getPost('chkModule');
+		$chAccess = $this->request->getPost('chAccess');
 		$arrWhere = array("GroupId" => $strGroupID);
 		$arrGroup = array('GroupName' => $strGroupName);
 
+	
 		$strMessage = "";
 		if ($strGroupID != "") {
 
@@ -248,16 +251,40 @@ class MenuController extends BaseController
 					->delete();
 
 				foreach ($arrModuleAkses as $value) {
+					$create = 0;
+					$update = 0;
+					$delete = 0;
+
+					foreach ($chAccess as $key => $subvalue) {
+
+						if (strpos($subvalue, '1-' . $value) !== false) {
+							$create = 1;
+						}
+						if (strpos($subvalue, '2-' . $value) !== false) {
+							$update = 1;
+						}
+
+						if (strpos($subvalue, '3-' . $value) !== false) {
+							$delete = 1;
+						}
+					}
+
+
 					$data = array(
 						'auth_groups_id' => $strGroupID,
 						'id_menu' => $value,
+						'create' => $create,
+						'update' => $update,
+						'delete' => $delete,
 						'created_by' => user()->username
 					);
-					
+				// 		echo "<pre>";
+				// print_r($data); echo "</pre>"; 
 					$this->mroles->save($data);
 				}
-
-				$strMessage = "Data has been edit";
+			//	die();
+				set_header_message('success', 'success', 'update success');
+				return redirect()->back()->withInput();
 			}
 		} else {
 			$data = array(
@@ -269,20 +296,50 @@ class MenuController extends BaseController
 			//dd($id);
 
 			foreach ($arrModuleAkses as $value) {
+
+				foreach ($chAccess as $key => $subvalue) {
+
+				
+					if (strpos($subvalue, '1-' . $value) !== false) {
+						$create = 1;
+					}
+					if (strpos($subvalue, '2-' . $value) !== false) {
+						$update = 1;
+					}
+
+					if (strpos($subvalue, '3-' . $value) !== false) {
+						$delete = 1;
+					}
+				}
+
 				$data = array(
 					'auth_groups_id' => $id,
 					'id_menu' => $value,
+					'id_menu' => $value,
+					'create' => $create,
+					'update' => $update,
+					'delete' => $delete,
 					'created_by' => user()->username
 				);
-				//xDebug($data);
+				// echo "<pre>";
+				// print_r($data); echo "</pre>"; 
 				$this->mroles->save($data);
-			}
-			$strMessage = "Data has been add";
+			} //die();
+			set_header_message('success', 'success', 'insertt success');
+			return redirect()->back()->withInput();
 		}
 
-		echo '<script>
-			alert("' . $strMessage . '");
-			location = "' . base_url('listgroup') . '";
-		</script>';
+	}
+
+
+	public function destroy($id){
+
+		$this->mgroupuser->where('id', $id)
+		->delete();
+		$this->mroles->where('auth_groups_id', $id)
+			->delete();
+
+		set_header_message('success', 'deleted', 'deleted success');
+		return redirect()->back()->withInput();
 	}
 }

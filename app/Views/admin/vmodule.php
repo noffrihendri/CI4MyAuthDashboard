@@ -4,7 +4,7 @@
 
     $treeviewdata = new Treeviewdata();
 
-      //dd($treeviewdata->fShowModuleTree($lstModule, "collapsed", "fClickTree", $arrAkses))
+    //dd($treeviewdata->fShowModuleTree($lstModule, "collapsed", "fClickTree", $arrAkses))
 
     ?>
 
@@ -23,7 +23,7 @@
             margin-top: 15px !important
         }
 
-   
+
 
         .dataTables_filter {
             display: none
@@ -117,7 +117,7 @@
 
                                     &nbsp;&nbsp;<input type='checkbox' id='checkall' value="<?php echo $moduleid; ?>">&nbsp;<b style="color:#dd4b39;">&nbsp;&nbsp;Select All</b>
                                     <div id="example-0">
-                                        <?php $treeviewdata->fShowModuleTree($lstModule, "collapsed", "fClickTree", $arrAkses); ?>
+                                        <?php $treeviewdata->fShowModuleTree($lstModule, "collapsed", "fClickTree", $arrAkses,array(), $GroupId); ?>
                                     </div>
 
                                 </div>

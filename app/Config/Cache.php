@@ -22,7 +22,8 @@ class Cache extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $handler = 'file';
+	public $handler = 'redis';
+	//public $handler = 'file';
 
 	/**
 	 * --------------------------------------------------------------------------

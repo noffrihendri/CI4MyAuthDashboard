@@ -23,6 +23,7 @@ class Filters extends BaseConfig
 		//tambahan 
 		'Auth' => \App\Filters\Auth::class,
 		'Authroles' => \App\Filters\Authroles::class,
+		'AuthCrud' => \App\Filters\Authcrud::class,
 
 
 		///tambahan untuk myauth
@@ -40,7 +41,8 @@ class Filters extends BaseConfig
 	public $globals = [
 		'before' => [
 			'honeypot',
-			'login'
+			'login',
+			'AuthCrud'
 			// 'csrf',
 		],
 		'after'  => [

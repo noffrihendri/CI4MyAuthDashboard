@@ -1,3 +1,4 @@
+
     <?= $this->extend('tempadmin'); ?>
 
     <?= $this->section('content'); ?>
@@ -12,7 +13,7 @@
                     searchPlaceholder: "Search By Username"
                 },
                 "ajax": {
-                    url: "<?= base_url("datauser") ?>",
+                    url: "<?= base_url("users/datauser") ?>",
                     type: "GET"
                 }
             });
@@ -30,7 +31,7 @@
                     </div>
 
                     <div class="card-header">
-                        <a type="button" href="<?= base_url(); ?>/adduser" class="btn btn-primary">tambah User</a>
+                        <a type="button" href="<?= base_url('users/adduser'); ?>" class="btn btn-primary">add Contract</a>
 
 
                     </div>
@@ -88,6 +89,4 @@
             </div>
             <!-- /.row -->
     </section>
-    <!-- /.content -->
-
     <?= $this->endsection(); ?>

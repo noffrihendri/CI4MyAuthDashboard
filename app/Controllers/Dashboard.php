@@ -30,7 +30,7 @@ class Dashboard extends BaseController
 	}
 	public function index()
 	{
-		//dd(User());
+	//	dd($_COOKIE);
 		return view('dashboard');
 
 	}

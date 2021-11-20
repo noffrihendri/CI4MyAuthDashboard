@@ -23,16 +23,18 @@
 
             $request = \Config\Services::request();
 
-            $uri = $request->uri->getSegments();
-           // dd($uri);
+            //$uri = $request->uri->getSegments();
+            $uri = $request->uri->getPath();
+          //dd($uri);
 
             foreach ($lstModule as $parent) {
                 $menuopen = '';
                 $activeparent = '';
                 foreach ($parent['Child'] as $Child) {
                     //dump()
-                   //var_dump(in_array($Child['PermaLink'],$uri));
-                    if (in_array($Child['PermaLink'], $uri)) {
+                   //var_dump(in_array($Child['PermaLink'],$uri)); die();
+                   // if (in_array($Child['PermaLink'], $uri)) {
+                    if ($Child['PermaLink'] == $uri) {
                         //var_dump($Child['PermaLink']);
                       //  dd(strpos($uri, $Child['PermaLink']));
                         $menuopen = 'menu-open';
@@ -57,7 +59,7 @@
                         $selected = '';
                         foreach ($parent['Child'] as $Child) {
 
-                            $selected = (in_array($Child['PermaLink'], $uri)) ? 'active' : '';
+                            $selected = ( $Child['PermaLink'] == $uri) ? 'active' : '';
 
                         ?>
 

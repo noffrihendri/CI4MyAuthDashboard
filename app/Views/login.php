@@ -11,6 +11,7 @@
     <link href="<?php echo base_url(); ?>/assets/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <!-- JS END -->
 
@@ -175,7 +176,7 @@
                                                 <input type="password" name="password" id="password" class="form-control" required>
                                             </div>
                                             <div class="form-group">
-
+                                            <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>  
                                                 <input type="submit" name="submit" class="btna biru " value="Masuk">
                                                 <!-- <input type="button" class="btna biru " onclick="getOTP()" value="Send OTP" id="btnotp"> -->
                                                 <!-- <input type="button" class="btn btn-danger btn-md" onclick="goBack()" value="Kembali"> -->
